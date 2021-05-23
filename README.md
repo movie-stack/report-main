@@ -43,5 +43,5 @@ _Please add at least on section (a file) per Chapter. But you can add more._
 ## Team
 * Pedro Costa [@pedrocosta](https://github.com/pedroscosta9)
 * Rui Coelho [@RuiCoelho21](https://github.com/RuiCoelho21)
-* Rui Coelho [@SimaoFernandes](https://github.com/SimaoFernandes) 
+* Simão Fernandes [@SimaoFernandes](https://github.com/SimaoFernandes) 
 
