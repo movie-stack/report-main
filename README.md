@@ -1,8 +1,11 @@
 # Movie Stack
-Este repositorio serve para alojar o projeto para o M2 de avaliação da cadeira de Programação Web do ISMAI - Instituto Universitario da Maia.
 
-## Descrição
-A RackIT é um sistema de gestão de inventario doméstico feito para facilitar a vida do utilizador.Pretende poupar tempo e dinheiro do utilizador verificando o que já possui e a sua validade e quantidade, sugerindo assim a lista de compras (de acordo com o que é comprado mais frequentemente) e também receitas com os produtos alimentares de forma a reduzir o desperdício. O sistema aprende com o utilizador, ajustando-se assim as suas necessidades, como um assistente pessoal.
+O trabalho foi realizado no âmbito da disciplina de Programação Web.
+
+## Description
+
+A aplicação Movie Stack consiste na ideia de criar uma aplicação com o objetivo de fornecer aos utilizadores um local onde podem armazenar na sua lista filmes e séries.
+O utilizador pode verificar a sua lista a qualquer momento, funcionando como uma espécie de agenda, no qual poderá ainda dar o feedback (através do rating) dos filmes e/ou séries que assistiu.
 
 ## Repository organization
 * Pode encontrar o **codigo fonte** em [movie-stack](https://github.com/movie-stack/report-main/tree/main/movie-stack).
