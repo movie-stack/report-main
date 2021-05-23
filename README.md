@@ -12,39 +12,35 @@ A aplicação Movie Stack consiste na criação de uma aplicação com o objetiv
 * Pode encontrar outros documentos importantes em **docs** em [docs](https://github.com/movie-stack/report-main/tree/main/docs).
 
 ## Gallery
-### Home
 | |
 :---: |
-![img0](img/1.png)
+![img0](/docs/img/1.png)
 Home Page API LoopBack
 
 
-### /explorer
 | | | | |
 :---: | :---: | :---: | :---:
-![img01](img/actorcontroller.png) | ![img02](img/listcontroller.png) | ![img03](img/listmoviecontroller.png) | ![img04](img/listmoviecontroller_listseriecontrololer.png)
+![img01](/docs/img/actorcontroller.png) | ![img02](/docs/img/listcontroller.png) | ![img03](/docs/img/listmoviecontroller.png) | ![img04](/docs/img/listmoviecontroller_listseriecontrololer.png)
 ActorController |  ListController | ListMovieController | ListMovieController & ListSerieController | 
 
 | | | | |
 :---: | :---: | :---: | :---:
-![img05](img/listseriecontroller.png) | ![img06](img/movieactorcontroller.png) | ![img07](img/movieactorcontroller_movielistcontroller.png) | ![img08](img/moviecontroller.png)
+![img05](/docs/img/listseriecontroller.png) | ![img06](/docs/img/movieactorcontroller.png) | ![img07](/docs/img/movieactorcontroller_movielistcontroller.png) | ![img08](/docs/img/moviecontroller.png)
 ListSerieController | MovieActorController | MovieActorController $ MovieListController | MovieController |
 
 | | | | |
 :---: | :---: | :---: | :---:
-![img09](img/serieacotrcontroller.png) | ![img010](img/serieactorcontroller.png) | ![img011](img/seriecontroller.png) | ![img011](img/userlistcontroller.png)
+![img09](/docs/img/serieacotrcontroller.png) | ![img010](/docs/img/serieactorcontroller.png) | ![img011](/docs/img/seriecontroller.png) | ![img011](/docs/img/userlistcontroller.png)
 SeriesController | SerieActorController | SerieController | UserListController | 
 
 | |
 :---: 
-![img09](img/usercontroller.png) |
+![img09](/docs/img/usercontroller.png) |
 UserController 
 
-
-### DataBase Relations
 | |
 :---:
-![Relations](img/relacoes.png) |
+![Relations](/docs/img/relacoes.png) |
 DataBase Relations |
 
 ## Technologies
