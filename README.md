@@ -4,7 +4,7 @@ O trabalho foi realizado no âmbito da disciplina de Programação Web.
 
 ## Description
 
-A aplicação Movie Stack consiste na ideia de criar uma aplicação com o objetivo de fornecer aos utilizadores um local onde podem armazenar na sua lista filmes e séries.
+A aplicação Movie Stack consiste na ideia de criar uma aplicação com o objetivo de fornecer aos utilizadores um local onde podem armazenar na sua lista filmes e/ou séries.
 O utilizador pode verificar a sua lista a qualquer momento, funcionando como uma espécie de agenda, no qual poderá ainda dar o feedback (através do rating) dos filmes e/ou séries que assistiu.
 
 ## Repository organization
