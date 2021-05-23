@@ -1,0 +1,6762 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "movie-stack",
+    "version": "0.0.1",
+    "description": "Movie/Serie List Service",
+    "contact": {}
+  },
+  "paths": {
+    "/actors/count": {
+      "get": {
+        "x-controller-name": "ActorController",
+        "x-operation-name": "count",
+        "tags": [
+          "ActorController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Actor model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Actor.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Actor>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ActorController.count"
+      }
+    },
+    "/actors/{id}/movies": {
+      "get": {
+        "x-controller-name": "ActorMovieController",
+        "x-operation-name": "find",
+        "tags": [
+          "ActorMovieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Actor has many Movie through MovieActor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Movie"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ActorMovieController.find"
+      }
+    },
+    "/actors/{id}/series": {
+      "get": {
+        "x-controller-name": "ActorSerieController",
+        "x-operation-name": "find",
+        "tags": [
+          "ActorSerieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Actor has many Serie through SerieActor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Serie"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ActorSerieController.find"
+      }
+    },
+    "/actors/{id}": {
+      "put": {
+        "x-controller-name": "ActorController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "ActorController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Actor PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Actor"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ActorController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "ActorController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "ActorController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Actor PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActorPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ActorController.updateById"
+      },
+      "get": {
+        "x-controller-name": "ActorController",
+        "x-operation-name": "findById",
+        "tags": [
+          "ActorController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Actor model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActorWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Actor.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ActorController.findById"
+      },
+      "delete": {
+        "x-controller-name": "ActorController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "ActorController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Actor DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "ActorController.deleteById"
+      }
+    },
+    "/actors": {
+      "post": {
+        "x-controller-name": "ActorController",
+        "x-operation-name": "create",
+        "tags": [
+          "ActorController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Actor model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Actor"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewActor"
+              }
+            }
+          }
+        },
+        "operationId": "ActorController.create"
+      },
+      "patch": {
+        "x-controller-name": "ActorController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "ActorController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Actor PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Actor.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Actor>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActorPartial"
+              }
+            }
+          }
+        },
+        "operationId": "ActorController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "ActorController",
+        "x-operation-name": "find",
+        "tags": [
+          "ActorController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Actor model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ActorWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Actor.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ActorController.find"
+      }
+    },
+    "/list-movies/count": {
+      "get": {
+        "x-controller-name": "ListmovieController",
+        "x-operation-name": "count",
+        "tags": [
+          "ListmovieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "ListMovie model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "ListMovie.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<ListMovie>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ListmovieController.count"
+      }
+    },
+    "/list-movies/{id}": {
+      "put": {
+        "x-controller-name": "ListmovieController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "ListmovieController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "ListMovie PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListMovie"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ListmovieController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "ListmovieController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "ListmovieController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "ListMovie PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListMoviePartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ListmovieController.updateById"
+      },
+      "get": {
+        "x-controller-name": "ListmovieController",
+        "x-operation-name": "findById",
+        "tags": [
+          "ListmovieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "ListMovie model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListMovieWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListMovie.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ListmovieController.findById"
+      },
+      "delete": {
+        "x-controller-name": "ListmovieController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "ListmovieController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "ListMovie DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "ListmovieController.deleteById"
+      }
+    },
+    "/list-movies": {
+      "post": {
+        "x-controller-name": "ListmovieController",
+        "x-operation-name": "create",
+        "tags": [
+          "ListmovieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "ListMovie model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListMovie"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewListMovie"
+              }
+            }
+          }
+        },
+        "operationId": "ListmovieController.create"
+      },
+      "patch": {
+        "x-controller-name": "ListmovieController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "ListmovieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "ListMovie PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "ListMovie.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<ListMovie>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListMoviePartial"
+              }
+            }
+          }
+        },
+        "operationId": "ListmovieController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "ListmovieController",
+        "x-operation-name": "find",
+        "tags": [
+          "ListmovieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of ListMovie model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ListMovieWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListMovie.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ListmovieController.find"
+      }
+    },
+    "/list-series/count": {
+      "get": {
+        "x-controller-name": "ListserieController",
+        "x-operation-name": "count",
+        "tags": [
+          "ListserieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "ListSerie model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "ListSerie.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<ListSerie>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ListserieController.count"
+      }
+    },
+    "/list-series/{id}": {
+      "put": {
+        "x-controller-name": "ListserieController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "ListserieController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "ListSerie PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListSerie"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ListserieController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "ListserieController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "ListserieController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "ListSerie PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListSeriePartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ListserieController.updateById"
+      },
+      "get": {
+        "x-controller-name": "ListserieController",
+        "x-operation-name": "findById",
+        "tags": [
+          "ListserieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "ListSerie model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSerieWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSerie.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ListserieController.findById"
+      },
+      "delete": {
+        "x-controller-name": "ListserieController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "ListserieController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "ListSerie DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "ListserieController.deleteById"
+      }
+    },
+    "/list-series": {
+      "post": {
+        "x-controller-name": "ListserieController",
+        "x-operation-name": "create",
+        "tags": [
+          "ListserieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "ListSerie model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSerie"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewListSerie"
+              }
+            }
+          }
+        },
+        "operationId": "ListserieController.create"
+      },
+      "patch": {
+        "x-controller-name": "ListserieController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "ListserieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "ListSerie PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "ListSerie.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<ListSerie>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListSeriePartial"
+              }
+            }
+          }
+        },
+        "operationId": "ListserieController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "ListserieController",
+        "x-operation-name": "find",
+        "tags": [
+          "ListserieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of ListSerie model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ListSerieWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSerie.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ListserieController.find"
+      }
+    },
+    "/lists/count": {
+      "get": {
+        "x-controller-name": "ListController",
+        "x-operation-name": "count",
+        "tags": [
+          "ListController"
+        ],
+        "responses": {
+          "200": {
+            "description": "List model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "List.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<List>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ListController.count"
+      }
+    },
+    "/lists/{id}/movies": {
+      "post": {
+        "x-controller-name": "ListMovieController",
+        "x-operation-name": "create",
+        "tags": [
+          "ListMovieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "create a Movie model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Movie"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewMovieInList"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ListMovieController.create"
+      },
+      "patch": {
+        "x-controller-name": "ListMovieController",
+        "x-operation-name": "patch",
+        "tags": [
+          "ListMovieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "List.Movie PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Movie.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Movie>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MoviePartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ListMovieController.patch"
+      },
+      "get": {
+        "x-controller-name": "ListMovieController",
+        "x-operation-name": "find",
+        "tags": [
+          "ListMovieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of List has many Movie through ListMovie",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Movie"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ListMovieController.find"
+      },
+      "delete": {
+        "x-controller-name": "ListMovieController",
+        "x-operation-name": "delete",
+        "tags": [
+          "ListMovieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "List.Movie DELETE success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Movie.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Movie>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ListMovieController.delete"
+      }
+    },
+    "/lists/{id}/series": {
+      "post": {
+        "x-controller-name": "ListSerieController",
+        "x-operation-name": "create",
+        "tags": [
+          "ListSerieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "create a Serie model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Serie"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewSerieInList"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ListSerieController.create"
+      },
+      "patch": {
+        "x-controller-name": "ListSerieController",
+        "x-operation-name": "patch",
+        "tags": [
+          "ListSerieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "List.Serie PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Serie.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Serie>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SeriePartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ListSerieController.patch"
+      },
+      "get": {
+        "x-controller-name": "ListSerieController",
+        "x-operation-name": "find",
+        "tags": [
+          "ListSerieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of List has many Serie through ListSerie",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Serie"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ListSerieController.find"
+      },
+      "delete": {
+        "x-controller-name": "ListSerieController",
+        "x-operation-name": "delete",
+        "tags": [
+          "ListSerieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "List.Serie DELETE success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Serie.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Serie>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ListSerieController.delete"
+      }
+    },
+    "/lists/{id}": {
+      "put": {
+        "x-controller-name": "ListController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "ListController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "List PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/List"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ListController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "ListController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "ListController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "List PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ListController.updateById"
+      },
+      "get": {
+        "x-controller-name": "ListController",
+        "x-operation-name": "findById",
+        "tags": [
+          "ListController"
+        ],
+        "responses": {
+          "200": {
+            "description": "List model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/List.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ListController.findById"
+      },
+      "delete": {
+        "x-controller-name": "ListController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "ListController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "List DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "ListController.deleteById"
+      }
+    },
+    "/lists": {
+      "post": {
+        "x-controller-name": "ListController",
+        "x-operation-name": "create",
+        "tags": [
+          "ListController"
+        ],
+        "responses": {
+          "200": {
+            "description": "List model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/List"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewList"
+              }
+            }
+          }
+        },
+        "operationId": "ListController.create"
+      },
+      "patch": {
+        "x-controller-name": "ListController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "ListController"
+        ],
+        "responses": {
+          "200": {
+            "description": "List PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "List.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<List>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListPartial"
+              }
+            }
+          }
+        },
+        "operationId": "ListController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "ListController",
+        "x-operation-name": "find",
+        "tags": [
+          "ListController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of List model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ListWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/List.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ListController.find"
+      }
+    },
+    "/movie-actors/count": {
+      "get": {
+        "x-controller-name": "MovieactorController",
+        "x-operation-name": "count",
+        "tags": [
+          "MovieactorController"
+        ],
+        "responses": {
+          "200": {
+            "description": "MovieActor model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "MovieActor.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<MovieActor>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "MovieactorController.count"
+      }
+    },
+    "/movie-actors/{id}": {
+      "put": {
+        "x-controller-name": "MovieactorController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "MovieactorController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "MovieActor PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MovieActor"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "MovieactorController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "MovieactorController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "MovieactorController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "MovieActor PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MovieActorPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "MovieactorController.updateById"
+      },
+      "get": {
+        "x-controller-name": "MovieactorController",
+        "x-operation-name": "findById",
+        "tags": [
+          "MovieactorController"
+        ],
+        "responses": {
+          "200": {
+            "description": "MovieActor model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MovieActorWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MovieActor.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "MovieactorController.findById"
+      },
+      "delete": {
+        "x-controller-name": "MovieactorController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "MovieactorController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "MovieActor DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "MovieactorController.deleteById"
+      }
+    },
+    "/movie-actors": {
+      "post": {
+        "x-controller-name": "MovieactorController",
+        "x-operation-name": "create",
+        "tags": [
+          "MovieactorController"
+        ],
+        "responses": {
+          "200": {
+            "description": "MovieActor model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MovieActor"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewMovieActor"
+              }
+            }
+          }
+        },
+        "operationId": "MovieactorController.create"
+      },
+      "patch": {
+        "x-controller-name": "MovieactorController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "MovieactorController"
+        ],
+        "responses": {
+          "200": {
+            "description": "MovieActor PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "MovieActor.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<MovieActor>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MovieActorPartial"
+              }
+            }
+          }
+        },
+        "operationId": "MovieactorController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "MovieactorController",
+        "x-operation-name": "find",
+        "tags": [
+          "MovieactorController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of MovieActor model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MovieActorWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MovieActor.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "MovieactorController.find"
+      }
+    },
+    "/movies/count": {
+      "get": {
+        "x-controller-name": "MovieController",
+        "x-operation-name": "count",
+        "tags": [
+          "MovieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Movie model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Movie.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Movie>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "MovieController.count"
+      }
+    },
+    "/movies/{id}/actors": {
+      "post": {
+        "x-controller-name": "MovieActorController",
+        "x-operation-name": "create",
+        "tags": [
+          "MovieActorController"
+        ],
+        "responses": {
+          "200": {
+            "description": "create a Actor model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Actor"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewActorInMovie"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "MovieActorController.create"
+      },
+      "patch": {
+        "x-controller-name": "MovieActorController",
+        "x-operation-name": "patch",
+        "tags": [
+          "MovieActorController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Movie.Actor PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Actor.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Actor>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActorPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "MovieActorController.patch"
+      },
+      "get": {
+        "x-controller-name": "MovieActorController",
+        "x-operation-name": "find",
+        "tags": [
+          "MovieActorController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Movie has many Actor through MovieActor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Actor"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "MovieActorController.find"
+      },
+      "delete": {
+        "x-controller-name": "MovieActorController",
+        "x-operation-name": "delete",
+        "tags": [
+          "MovieActorController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Movie.Actor DELETE success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Actor.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Actor>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "MovieActorController.delete"
+      }
+    },
+    "/movies/{id}/lists": {
+      "get": {
+        "x-controller-name": "MovieListController",
+        "x-operation-name": "find",
+        "tags": [
+          "MovieListController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Movie has many List through ListMovie",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/List"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "MovieListController.find"
+      }
+    },
+    "/movies/{id}": {
+      "put": {
+        "x-controller-name": "MovieController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "MovieController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Movie PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Movie"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "MovieController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "MovieController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "MovieController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Movie PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MoviePartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "MovieController.updateById"
+      },
+      "get": {
+        "x-controller-name": "MovieController",
+        "x-operation-name": "findById",
+        "tags": [
+          "MovieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Movie model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MovieWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Movie.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "MovieController.findById"
+      },
+      "delete": {
+        "x-controller-name": "MovieController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "MovieController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Movie DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "MovieController.deleteById"
+      }
+    },
+    "/movies": {
+      "post": {
+        "x-controller-name": "MovieController",
+        "x-operation-name": "create",
+        "tags": [
+          "MovieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Movie model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Movie"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewMovie"
+              }
+            }
+          }
+        },
+        "operationId": "MovieController.create"
+      },
+      "patch": {
+        "x-controller-name": "MovieController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "MovieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Movie PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Movie.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Movie>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MoviePartial"
+              }
+            }
+          }
+        },
+        "operationId": "MovieController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "MovieController",
+        "x-operation-name": "find",
+        "tags": [
+          "MovieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Movie model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MovieWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Movie.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "MovieController.find"
+      }
+    },
+    "/ping": {
+      "get": {
+        "x-controller-name": "PingController",
+        "x-operation-name": "ping",
+        "tags": [
+          "PingController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Ping Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PingResponse"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "PingController.ping"
+      }
+    },
+    "/serie-actors/count": {
+      "get": {
+        "x-controller-name": "SerieactorController",
+        "x-operation-name": "count",
+        "tags": [
+          "SerieactorController"
+        ],
+        "responses": {
+          "200": {
+            "description": "SerieActor model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "SerieActor.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<SerieActor>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "SerieactorController.count"
+      }
+    },
+    "/serie-actors/{id}": {
+      "put": {
+        "x-controller-name": "SerieactorController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "SerieactorController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "SerieActor PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SerieActor"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "SerieactorController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "SerieactorController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "SerieactorController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "SerieActor PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SerieActorPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "SerieactorController.updateById"
+      },
+      "get": {
+        "x-controller-name": "SerieactorController",
+        "x-operation-name": "findById",
+        "tags": [
+          "SerieactorController"
+        ],
+        "responses": {
+          "200": {
+            "description": "SerieActor model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SerieActorWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SerieActor.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "SerieactorController.findById"
+      },
+      "delete": {
+        "x-controller-name": "SerieactorController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "SerieactorController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "SerieActor DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "SerieactorController.deleteById"
+      }
+    },
+    "/serie-actors": {
+      "post": {
+        "x-controller-name": "SerieactorController",
+        "x-operation-name": "create",
+        "tags": [
+          "SerieactorController"
+        ],
+        "responses": {
+          "200": {
+            "description": "SerieActor model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SerieActor"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewSerieActor"
+              }
+            }
+          }
+        },
+        "operationId": "SerieactorController.create"
+      },
+      "patch": {
+        "x-controller-name": "SerieactorController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "SerieactorController"
+        ],
+        "responses": {
+          "200": {
+            "description": "SerieActor PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "SerieActor.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<SerieActor>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SerieActorPartial"
+              }
+            }
+          }
+        },
+        "operationId": "SerieactorController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "SerieactorController",
+        "x-operation-name": "find",
+        "tags": [
+          "SerieactorController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of SerieActor model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SerieActorWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SerieActor.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "SerieactorController.find"
+      }
+    },
+    "/series/count": {
+      "get": {
+        "x-controller-name": "SerieController",
+        "x-operation-name": "count",
+        "tags": [
+          "SerieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Serie model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Serie.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Serie>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "SerieController.count"
+      }
+    },
+    "/series/{id}/actors": {
+      "post": {
+        "x-controller-name": "SerieActorController",
+        "x-operation-name": "create",
+        "tags": [
+          "SerieActorController"
+        ],
+        "responses": {
+          "200": {
+            "description": "create a Actor model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Actor"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewActorInSerie"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "SerieActorController.create"
+      },
+      "patch": {
+        "x-controller-name": "SerieActorController",
+        "x-operation-name": "patch",
+        "tags": [
+          "SerieActorController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Serie.Actor PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Actor.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Actor>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActorPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "SerieActorController.patch"
+      },
+      "get": {
+        "x-controller-name": "SerieActorController",
+        "x-operation-name": "find",
+        "tags": [
+          "SerieActorController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Serie has many Actor through SerieActor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Actor"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "SerieActorController.find"
+      },
+      "delete": {
+        "x-controller-name": "SerieActorController",
+        "x-operation-name": "delete",
+        "tags": [
+          "SerieActorController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Serie.Actor DELETE success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Actor.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Actor>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "SerieActorController.delete"
+      }
+    },
+    "/series/{id}/lists": {
+      "get": {
+        "x-controller-name": "SerieListController",
+        "x-operation-name": "find",
+        "tags": [
+          "SerieListController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Serie has many List through ListSerie",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/List"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "SerieListController.find"
+      }
+    },
+    "/series/{id}": {
+      "put": {
+        "x-controller-name": "SerieController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "SerieController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Serie PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Serie"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "SerieController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "SerieController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "SerieController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Serie PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SeriePartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "SerieController.updateById"
+      },
+      "get": {
+        "x-controller-name": "SerieController",
+        "x-operation-name": "findById",
+        "tags": [
+          "SerieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Serie model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SerieWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Serie.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "SerieController.findById"
+      },
+      "delete": {
+        "x-controller-name": "SerieController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "SerieController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Serie DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "SerieController.deleteById"
+      }
+    },
+    "/series": {
+      "post": {
+        "x-controller-name": "SerieController",
+        "x-operation-name": "create",
+        "tags": [
+          "SerieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Serie model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Serie"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewSerie"
+              }
+            }
+          }
+        },
+        "operationId": "SerieController.create"
+      },
+      "patch": {
+        "x-controller-name": "SerieController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "SerieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Serie PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Serie.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Serie>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SeriePartial"
+              }
+            }
+          }
+        },
+        "operationId": "SerieController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "SerieController",
+        "x-operation-name": "find",
+        "tags": [
+          "SerieController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Serie model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SerieWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Serie.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "SerieController.find"
+      }
+    },
+    "/users/count": {
+      "get": {
+        "x-controller-name": "UserController",
+        "x-operation-name": "count",
+        "tags": [
+          "UserController"
+        ],
+        "responses": {
+          "200": {
+            "description": "User model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "User.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<User>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "UserController.count"
+      }
+    },
+    "/users/{id}/lists": {
+      "post": {
+        "x-controller-name": "UserListController",
+        "x-operation-name": "create",
+        "tags": [
+          "UserListController"
+        ],
+        "responses": {
+          "200": {
+            "description": "User model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/List"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewListInUser"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "UserListController.create"
+      },
+      "patch": {
+        "x-controller-name": "UserListController",
+        "x-operation-name": "patch",
+        "tags": [
+          "UserListController"
+        ],
+        "responses": {
+          "200": {
+            "description": "User.List PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "List.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<List>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "UserListController.patch"
+      },
+      "get": {
+        "x-controller-name": "UserListController",
+        "x-operation-name": "find",
+        "tags": [
+          "UserListController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of User has many List",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/List"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "UserListController.find"
+      },
+      "delete": {
+        "x-controller-name": "UserListController",
+        "x-operation-name": "delete",
+        "tags": [
+          "UserListController"
+        ],
+        "responses": {
+          "200": {
+            "description": "User.List DELETE success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "List.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<List>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "UserListController.delete"
+      }
+    },
+    "/users/{id}": {
+      "put": {
+        "x-controller-name": "UserController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "UserController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "User PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "UserController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "UserController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "UserController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "User PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "UserController.updateById"
+      },
+      "get": {
+        "x-controller-name": "UserController",
+        "x-operation-name": "findById",
+        "tags": [
+          "UserController"
+        ],
+        "responses": {
+          "200": {
+            "description": "User model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "UserController.findById"
+      },
+      "delete": {
+        "x-controller-name": "UserController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "UserController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "User DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "UserController.deleteById"
+      }
+    },
+    "/users": {
+      "post": {
+        "x-controller-name": "UserController",
+        "x-operation-name": "create",
+        "tags": [
+          "UserController"
+        ],
+        "responses": {
+          "200": {
+            "description": "User model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewUser"
+              }
+            }
+          }
+        },
+        "operationId": "UserController.create"
+      },
+      "patch": {
+        "x-controller-name": "UserController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "UserController"
+        ],
+        "responses": {
+          "200": {
+            "description": "User PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "User.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<User>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserPartial"
+              }
+            }
+          }
+        },
+        "operationId": "UserController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "UserController",
+        "x-operation-name": "find",
+        "tags": [
+          "UserController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of User model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "UserController.find"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "http://[::1]:3000"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "Movie": {
+        "title": "Movie",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "release_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "rating": {
+            "type": "number"
+          },
+          "genre": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "release_date",
+          "rating",
+          "genre"
+        ],
+        "additionalProperties": false
+      },
+      "Serie": {
+        "title": "Serie",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "release_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "rating": {
+            "type": "number"
+          },
+          "genre": {
+            "type": "string"
+          },
+          "seasons": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "name",
+          "release_date",
+          "rating",
+          "genre",
+          "seasons"
+        ],
+        "additionalProperties": false
+      },
+      "Actor": {
+        "title": "Actor",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "birthdate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "gender": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "birthdate",
+          "gender"
+        ],
+        "additionalProperties": false
+      },
+      "NewActor": {
+        "title": "NewActor",
+        "type": "object",
+        "description": "(tsType: Omit<Actor, 'id'>, schemaOptions: { title: 'NewActor', exclude: [ 'id' ] })",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "birthdate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "gender": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "birthdate",
+          "gender"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Actor, 'id'>"
+      },
+      "SerieWithRelations": {
+        "title": "SerieWithRelations",
+        "type": "object",
+        "description": "(tsType: SerieWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "release_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "rating": {
+            "type": "number"
+          },
+          "genre": {
+            "type": "string"
+          },
+          "seasons": {
+            "type": "number"
+          },
+          "actors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ActorWithRelations"
+            }
+          },
+          "lists": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListWithRelations"
+            }
+          }
+        },
+        "required": [
+          "name",
+          "release_date",
+          "rating",
+          "genre",
+          "seasons"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "SerieWithRelations"
+      },
+      "ListWithRelations": {
+        "title": "ListWithRelations",
+        "type": "object",
+        "description": "(tsType: ListWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "creation_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "userId": {
+            "type": "number"
+          },
+          "movies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MovieWithRelations"
+            }
+          },
+          "series": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SerieWithRelations"
+            }
+          }
+        },
+        "required": [
+          "name",
+          "description",
+          "creation_date"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "ListWithRelations"
+      },
+      "MovieWithRelations": {
+        "title": "MovieWithRelations",
+        "type": "object",
+        "description": "(tsType: MovieWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "release_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "rating": {
+            "type": "number"
+          },
+          "genre": {
+            "type": "string"
+          },
+          "actors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ActorWithRelations"
+            }
+          },
+          "lists": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListWithRelations"
+            }
+          }
+        },
+        "required": [
+          "name",
+          "release_date",
+          "rating",
+          "genre"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "MovieWithRelations"
+      },
+      "ActorWithRelations": {
+        "title": "ActorWithRelations",
+        "type": "object",
+        "description": "(tsType: ActorWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "birthdate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "movies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MovieWithRelations"
+            }
+          },
+          "series": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SerieWithRelations"
+            }
+          }
+        },
+        "required": [
+          "name",
+          "birthdate",
+          "gender"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "ActorWithRelations"
+      },
+      "ActorPartial": {
+        "title": "ActorPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Actor>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "birthdate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "gender": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Actor>"
+      },
+      "NewMovieInList": {
+        "title": "NewMovieInList",
+        "type": "object",
+        "description": "(tsType: Omit<Movie, 'id'>, schemaOptions: { title: 'NewMovieInList', exclude: [ 'id' ] })",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "release_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "rating": {
+            "type": "number"
+          },
+          "genre": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "release_date",
+          "rating",
+          "genre"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Movie, 'id'>"
+      },
+      "MoviePartial": {
+        "title": "MoviePartial",
+        "type": "object",
+        "description": "(tsType: Partial<Movie>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "release_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "rating": {
+            "type": "number"
+          },
+          "genre": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Movie>"
+      },
+      "NewSerieInList": {
+        "title": "NewSerieInList",
+        "type": "object",
+        "description": "(tsType: Omit<Serie, 'id'>, schemaOptions: { title: 'NewSerieInList', exclude: [ 'id' ] })",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "release_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "rating": {
+            "type": "number"
+          },
+          "genre": {
+            "type": "string"
+          },
+          "seasons": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "name",
+          "release_date",
+          "rating",
+          "genre",
+          "seasons"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Serie, 'id'>"
+      },
+      "SeriePartial": {
+        "title": "SeriePartial",
+        "type": "object",
+        "description": "(tsType: Partial<Serie>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "release_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "rating": {
+            "type": "number"
+          },
+          "genre": {
+            "type": "string"
+          },
+          "seasons": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Serie>"
+      },
+      "List": {
+        "title": "List",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "creation_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "userId": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "name",
+          "description",
+          "creation_date"
+        ],
+        "additionalProperties": false
+      },
+      "NewList": {
+        "title": "NewList",
+        "type": "object",
+        "description": "(tsType: Omit<List, 'id'>, schemaOptions: { title: 'NewList', exclude: [ 'id' ] })",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "creation_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "userId": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "name",
+          "description",
+          "creation_date"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<List, 'id'>"
+      },
+      "ListPartial": {
+        "title": "ListPartial",
+        "type": "object",
+        "description": "(tsType: Partial<List>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "creation_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "userId": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<List>"
+      },
+      "ListMovie": {
+        "title": "ListMovie",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "listId": {
+            "type": "number"
+          },
+          "movieId": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NewListMovie": {
+        "title": "NewListMovie",
+        "type": "object",
+        "description": "(tsType: Omit<ListMovie, 'id'>, schemaOptions: { title: 'NewListMovie', exclude: [ 'id' ] })",
+        "properties": {
+          "listId": {
+            "type": "number"
+          },
+          "movieId": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<ListMovie, 'id'>"
+      },
+      "ListMovieWithRelations": {
+        "title": "ListMovieWithRelations",
+        "type": "object",
+        "description": "(tsType: ListMovieWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "listId": {
+            "type": "number"
+          },
+          "movieId": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "ListMovieWithRelations"
+      },
+      "ListMoviePartial": {
+        "title": "ListMoviePartial",
+        "type": "object",
+        "description": "(tsType: Partial<ListMovie>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "listId": {
+            "type": "number"
+          },
+          "movieId": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<ListMovie>"
+      },
+      "ListSerie": {
+        "title": "ListSerie",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "listId": {
+            "type": "number"
+          },
+          "serieId": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NewListSerie": {
+        "title": "NewListSerie",
+        "type": "object",
+        "description": "(tsType: Omit<ListSerie, 'id'>, schemaOptions: { title: 'NewListSerie', exclude: [ 'id' ] })",
+        "properties": {
+          "listId": {
+            "type": "number"
+          },
+          "serieId": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<ListSerie, 'id'>"
+      },
+      "ListSerieWithRelations": {
+        "title": "ListSerieWithRelations",
+        "type": "object",
+        "description": "(tsType: ListSerieWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "listId": {
+            "type": "number"
+          },
+          "serieId": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "ListSerieWithRelations"
+      },
+      "ListSeriePartial": {
+        "title": "ListSeriePartial",
+        "type": "object",
+        "description": "(tsType: Partial<ListSerie>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "listId": {
+            "type": "number"
+          },
+          "serieId": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<ListSerie>"
+      },
+      "NewActorInMovie": {
+        "title": "NewActorInMovie",
+        "type": "object",
+        "description": "(tsType: Omit<Actor, 'id'>, schemaOptions: { title: 'NewActorInMovie', exclude: [ 'id' ] })",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "birthdate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "gender": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "birthdate",
+          "gender"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Actor, 'id'>"
+      },
+      "NewMovie": {
+        "title": "NewMovie",
+        "type": "object",
+        "description": "(tsType: Omit<Movie, 'id'>, schemaOptions: { title: 'NewMovie', exclude: [ 'id' ] })",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "release_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "rating": {
+            "type": "number"
+          },
+          "genre": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "release_date",
+          "rating",
+          "genre"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Movie, 'id'>"
+      },
+      "MovieActor": {
+        "title": "MovieActor",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "movieId": {
+            "type": "number"
+          },
+          "actorId": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NewMovieActor": {
+        "title": "NewMovieActor",
+        "type": "object",
+        "description": "(tsType: Omit<MovieActor, 'id'>, schemaOptions: { title: 'NewMovieActor', exclude: [ 'id' ] })",
+        "properties": {
+          "movieId": {
+            "type": "number"
+          },
+          "actorId": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<MovieActor, 'id'>"
+      },
+      "MovieActorWithRelations": {
+        "title": "MovieActorWithRelations",
+        "type": "object",
+        "description": "(tsType: MovieActorWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "movieId": {
+            "type": "number"
+          },
+          "actorId": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "MovieActorWithRelations"
+      },
+      "MovieActorPartial": {
+        "title": "MovieActorPartial",
+        "type": "object",
+        "description": "(tsType: Partial<MovieActor>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "movieId": {
+            "type": "number"
+          },
+          "actorId": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<MovieActor>"
+      },
+      "NewActorInSerie": {
+        "title": "NewActorInSerie",
+        "type": "object",
+        "description": "(tsType: Omit<Actor, 'id'>, schemaOptions: { title: 'NewActorInSerie', exclude: [ 'id' ] })",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "birthdate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "gender": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "birthdate",
+          "gender"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Actor, 'id'>"
+      },
+      "NewSerie": {
+        "title": "NewSerie",
+        "type": "object",
+        "description": "(tsType: Omit<Serie, 'id'>, schemaOptions: { title: 'NewSerie', exclude: [ 'id' ] })",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "release_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "rating": {
+            "type": "number"
+          },
+          "genre": {
+            "type": "string"
+          },
+          "seasons": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "name",
+          "release_date",
+          "rating",
+          "genre",
+          "seasons"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Serie, 'id'>"
+      },
+      "SerieActor": {
+        "title": "SerieActor",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "serieId": {
+            "type": "number"
+          },
+          "actorId": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NewSerieActor": {
+        "title": "NewSerieActor",
+        "type": "object",
+        "description": "(tsType: Omit<SerieActor, 'id'>, schemaOptions: { title: 'NewSerieActor', exclude: [ 'id' ] })",
+        "properties": {
+          "serieId": {
+            "type": "number"
+          },
+          "actorId": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<SerieActor, 'id'>"
+      },
+      "SerieActorWithRelations": {
+        "title": "SerieActorWithRelations",
+        "type": "object",
+        "description": "(tsType: SerieActorWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "serieId": {
+            "type": "number"
+          },
+          "actorId": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "SerieActorWithRelations"
+      },
+      "SerieActorPartial": {
+        "title": "SerieActorPartial",
+        "type": "object",
+        "description": "(tsType: Partial<SerieActor>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "serieId": {
+            "type": "number"
+          },
+          "actorId": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<SerieActor>"
+      },
+      "NewListInUser": {
+        "title": "NewListInUser",
+        "type": "object",
+        "description": "(tsType: @loopback/repository-json-schema#Optional<Omit<List, 'id'>, 'userId'>, schemaOptions: { title: 'NewListInUser', exclude: [ 'id' ], optional: [ 'userId' ] })",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "creation_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "userId": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "name",
+          "description",
+          "creation_date"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository-json-schema#Optional<Omit<List, 'id'>, 'userId'>"
+      },
+      "User": {
+        "title": "User",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "verified": {
+            "type": "boolean"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "username",
+          "email",
+          "verified",
+          "password"
+        ],
+        "additionalProperties": false
+      },
+      "NewUser": {
+        "title": "NewUser",
+        "type": "object",
+        "description": "(tsType: Omit<User, 'id'>, schemaOptions: { title: 'NewUser', exclude: [ 'id' ] })",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "verified": {
+            "type": "boolean"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "username",
+          "email",
+          "verified",
+          "password"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<User, 'id'>"
+      },
+      "UserWithRelations": {
+        "title": "UserWithRelations",
+        "type": "object",
+        "description": "(tsType: UserWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "verified": {
+            "type": "boolean"
+          },
+          "password": {
+            "type": "string"
+          },
+          "lists": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListWithRelations"
+            }
+          }
+        },
+        "required": [
+          "username",
+          "email",
+          "verified",
+          "password"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "UserWithRelations"
+      },
+      "UserPartial": {
+        "title": "UserPartial",
+        "type": "object",
+        "description": "(tsType: Partial<User>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "verified": {
+            "type": "boolean"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<User>"
+      },
+      "loopback.Count": {
+        "type": "object",
+        "title": "loopback.Count",
+        "x-typescript-type": "@loopback/repository#Count",
+        "properties": {
+          "count": {
+            "type": "number"
+          }
+        }
+      },
+      "Actor.ScopeFilter": {
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            ]
+          },
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": false,
+        "title": "Actor.ScopeFilter"
+      },
+      "Actor.IncludeFilter.Items": {
+        "title": "Actor.IncludeFilter.Items",
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/Actor.ScopeFilter"
+          }
+        }
+      },
+      "Actor.Filter": {
+        "type": "object",
+        "title": "Actor.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "boolean"
+                  },
+                  "birthdate": {
+                    "type": "boolean"
+                  },
+                  "gender": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "name",
+                    "birthdate",
+                    "gender"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Actor.Fields"
+          },
+          "include": {
+            "title": "Actor.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Actor.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Actor>"
+      },
+      "Actor.Filter1": {
+        "type": "object",
+        "title": "Actor.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Actor.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "boolean"
+                  },
+                  "birthdate": {
+                    "type": "boolean"
+                  },
+                  "gender": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "name",
+                    "birthdate",
+                    "gender"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Actor.Fields"
+          },
+          "include": {
+            "title": "Actor.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Actor.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Actor>"
+      },
+      "ListMovie.Filter": {
+        "type": "object",
+        "title": "ListMovie.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "listId": {
+                    "type": "boolean"
+                  },
+                  "movieId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "listId",
+                    "movieId"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "ListMovie.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<ListMovie>"
+      },
+      "ListMovie.Filter1": {
+        "type": "object",
+        "title": "ListMovie.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "ListMovie.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "listId": {
+                    "type": "boolean"
+                  },
+                  "movieId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "listId",
+                    "movieId"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "ListMovie.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<ListMovie>"
+      },
+      "ListSerie.Filter": {
+        "type": "object",
+        "title": "ListSerie.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "listId": {
+                    "type": "boolean"
+                  },
+                  "serieId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "listId",
+                    "serieId"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "ListSerie.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<ListSerie>"
+      },
+      "ListSerie.Filter1": {
+        "type": "object",
+        "title": "ListSerie.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "ListSerie.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "listId": {
+                    "type": "boolean"
+                  },
+                  "serieId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "listId",
+                    "serieId"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "ListSerie.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<ListSerie>"
+      },
+      "List.ScopeFilter": {
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            ]
+          },
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": false,
+        "title": "List.ScopeFilter"
+      },
+      "List.IncludeFilter.Items": {
+        "title": "List.IncludeFilter.Items",
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/List.ScopeFilter"
+          }
+        }
+      },
+      "List.Filter": {
+        "type": "object",
+        "title": "List.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "boolean"
+                  },
+                  "description": {
+                    "type": "boolean"
+                  },
+                  "creation_date": {
+                    "type": "boolean"
+                  },
+                  "userId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "name",
+                    "description",
+                    "creation_date",
+                    "userId"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "List.Fields"
+          },
+          "include": {
+            "title": "List.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/List.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<List>"
+      },
+      "List.Filter1": {
+        "type": "object",
+        "title": "List.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "List.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "boolean"
+                  },
+                  "description": {
+                    "type": "boolean"
+                  },
+                  "creation_date": {
+                    "type": "boolean"
+                  },
+                  "userId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "name",
+                    "description",
+                    "creation_date",
+                    "userId"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "List.Fields"
+          },
+          "include": {
+            "title": "List.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/List.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<List>"
+      },
+      "MovieActor.Filter": {
+        "type": "object",
+        "title": "MovieActor.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "movieId": {
+                    "type": "boolean"
+                  },
+                  "actorId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "movieId",
+                    "actorId"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "MovieActor.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<MovieActor>"
+      },
+      "MovieActor.Filter1": {
+        "type": "object",
+        "title": "MovieActor.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "MovieActor.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "movieId": {
+                    "type": "boolean"
+                  },
+                  "actorId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "movieId",
+                    "actorId"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "MovieActor.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<MovieActor>"
+      },
+      "Movie.ScopeFilter": {
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            ]
+          },
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": false,
+        "title": "Movie.ScopeFilter"
+      },
+      "Movie.IncludeFilter.Items": {
+        "title": "Movie.IncludeFilter.Items",
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/Movie.ScopeFilter"
+          }
+        }
+      },
+      "Movie.Filter": {
+        "type": "object",
+        "title": "Movie.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "boolean"
+                  },
+                  "release_date": {
+                    "type": "boolean"
+                  },
+                  "rating": {
+                    "type": "boolean"
+                  },
+                  "genre": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "name",
+                    "release_date",
+                    "rating",
+                    "genre"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Movie.Fields"
+          },
+          "include": {
+            "title": "Movie.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Movie.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Movie>"
+      },
+      "Movie.Filter1": {
+        "type": "object",
+        "title": "Movie.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Movie.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "boolean"
+                  },
+                  "release_date": {
+                    "type": "boolean"
+                  },
+                  "rating": {
+                    "type": "boolean"
+                  },
+                  "genre": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "name",
+                    "release_date",
+                    "rating",
+                    "genre"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Movie.Fields"
+          },
+          "include": {
+            "title": "Movie.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Movie.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Movie>"
+      },
+      "PingResponse": {
+        "type": "object",
+        "title": "PingResponse",
+        "properties": {
+          "greeting": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "object",
+            "properties": {
+              "Content-Type": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "SerieActor.Filter": {
+        "type": "object",
+        "title": "SerieActor.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "serieId": {
+                    "type": "boolean"
+                  },
+                  "actorId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "serieId",
+                    "actorId"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "SerieActor.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<SerieActor>"
+      },
+      "SerieActor.Filter1": {
+        "type": "object",
+        "title": "SerieActor.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "SerieActor.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "serieId": {
+                    "type": "boolean"
+                  },
+                  "actorId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "serieId",
+                    "actorId"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "SerieActor.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<SerieActor>"
+      },
+      "Serie.ScopeFilter": {
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            ]
+          },
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": false,
+        "title": "Serie.ScopeFilter"
+      },
+      "Serie.IncludeFilter.Items": {
+        "title": "Serie.IncludeFilter.Items",
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/Serie.ScopeFilter"
+          }
+        }
+      },
+      "Serie.Filter": {
+        "type": "object",
+        "title": "Serie.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "boolean"
+                  },
+                  "release_date": {
+                    "type": "boolean"
+                  },
+                  "rating": {
+                    "type": "boolean"
+                  },
+                  "genre": {
+                    "type": "boolean"
+                  },
+                  "seasons": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "name",
+                    "release_date",
+                    "rating",
+                    "genre",
+                    "seasons"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Serie.Fields"
+          },
+          "include": {
+            "title": "Serie.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Serie.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Serie>"
+      },
+      "Serie.Filter1": {
+        "type": "object",
+        "title": "Serie.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Serie.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "boolean"
+                  },
+                  "release_date": {
+                    "type": "boolean"
+                  },
+                  "rating": {
+                    "type": "boolean"
+                  },
+                  "genre": {
+                    "type": "boolean"
+                  },
+                  "seasons": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "name",
+                    "release_date",
+                    "rating",
+                    "genre",
+                    "seasons"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Serie.Fields"
+          },
+          "include": {
+            "title": "Serie.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Serie.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Serie>"
+      },
+      "User.ScopeFilter": {
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            ]
+          },
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": false,
+        "title": "User.ScopeFilter"
+      },
+      "User.IncludeFilter.Items": {
+        "title": "User.IncludeFilter.Items",
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/User.ScopeFilter"
+          }
+        }
+      },
+      "User.Filter": {
+        "type": "object",
+        "title": "User.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "username": {
+                    "type": "boolean"
+                  },
+                  "email": {
+                    "type": "boolean"
+                  },
+                  "verified": {
+                    "type": "boolean"
+                  },
+                  "password": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "username",
+                    "email",
+                    "verified",
+                    "password"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "User.Fields"
+          },
+          "include": {
+            "title": "User.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/User.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<User>"
+      },
+      "User.Filter1": {
+        "type": "object",
+        "title": "User.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "User.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "username": {
+                    "type": "boolean"
+                  },
+                  "email": {
+                    "type": "boolean"
+                  },
+                  "verified": {
+                    "type": "boolean"
+                  },
+                  "password": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "username",
+                    "email",
+                    "verified",
+                    "password"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "User.Fields"
+          },
+          "include": {
+            "title": "User.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/User.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<User>"
+      }
+    }
+  }
+}
