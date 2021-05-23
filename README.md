@@ -30,9 +30,6 @@ A [table](https://www.markdownguide.org/extended-syntax/#tables) may be usefull 
 * JQuery
 * Loopback 4
 
-## Report
-_Please add at least on section (a file) per Chapter. But you can add more._
-
 ### Project presentation
 * Chapter 1: [Project presentation](https://github.com/movie-stack/report-main/blob/main/docs/c1.md)
 ### User Interface 
