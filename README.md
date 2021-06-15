@@ -12,6 +12,7 @@ A aplicação Movie Stack consiste na criação de uma aplicação com o objetiv
 * Pode encontrar outros documentos importantes em [docs](https://github.com/movie-stack/report-main/tree/main/docs).
 
 ## Gallery
+## API
 | |
 :---: |
 ![img0](/docs/img/1.png)
@@ -43,15 +44,17 @@ UserController
 ![Relations](/docs/img/relacoes.png) |
 DataBase Relations |
 
+
+## REACT
 | | | | |
 :---: | :---: | :---: | :---:
-![img01](/docs/img/actorslobby.PNG) | ![img02](/docs/img/Serieslobby.PNG) | ![img03](/docs/img/movieslobby.PNG) | ![img04](/docs/img/listserieslobby.PNG)
-ActorsLobby | SeriesLobby | MovieLobby | ListSeriesLobby | 
+![img01](/docs/img/actorslobby.PNG) | ![img02](/docs/img/Serieslobby.PNG) | ![img03](/docs/img/movieslobby.PNG) | ![img04](/docs/img/usersLobby.PNG)
+Actors List | Series List | Movies List | Users List | 
 
 | | | | |
 :---: | :---: | :---: | :---:
-![img01](/docs/img/listmovieslobby.PNG) | ![img02](/docs/img/movieacotrslobby.PNG) | ![img03](/docs/img/serieactorslobby.PNG) | ![img04](/docs/img/usersLobby.PNG)
-ListMoviesLobby | MovieActorsLobby | SeriesActorsLobby | UsersLobby
+![img01](/docs/img/listmovieslobby.PNG) | ![img02](/docs/img/movieacotrslobby.PNG) | ![img03](/docs/img/serieactorslobby.PNG) | ![img04](/docs/img/listserieslobby.PNG)
+ListMoviesLobby | MovieActorsLobby | SeriesActorsLobby | List Series List | 
 
 
 ## Technologies
