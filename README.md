@@ -62,9 +62,9 @@ DataBase Relations |
 ### User Interface 
 * 2: [User Interface](https://github.com/movie-stack/report-main/blob/main/docs/c2.md)
 ### Product
-* Chapter 3: [Product](https://github.com/movie-stack/report-main/blob/main/docs/c3.md)
+* 3: [Product](https://github.com/movie-stack/report-main/blob/main/docs/c3.md)
 ### Presentation
-* Chapter 4: [Presentation](https://github.com/movie-stack/report-main/blob/main/docs/c4.md)
+* 4: [Presentation](https://github.com/movie-stack/report-main/blob/main/docs/c4.md)
 
 ## Team
 * Pedro Costa [@pedrocosta](https://github.com/pedroscosta9)
