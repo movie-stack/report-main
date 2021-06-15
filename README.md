@@ -10,6 +10,7 @@ A aplicação Movie Stack consiste na criação de uma aplicação com o objetiv
 * Pode encontrar o **codigo fonte** em [movie-stack](https://github.com/movie-stack/report-main/tree/main/movie-stack).
 * Pode encontrar a **base de dados** em [bd](https://github.com/movie-stack/report-main/tree/main/bd).
 * Pode encontrar outros documentos importantes em [docs](https://github.com/movie-stack/report-main/tree/main/docs).
+* Pode encontrar o **codigo fonte** em [react-app](https://github.com/movie-stack/report-main/tree/main/react-app).
 
 ## Gallery
 ## API
@@ -97,12 +98,16 @@ Actors Filtre | Series Filtre | Movies Filtre | Users Filtre | List Filtre
 * MySQL
 * NodeJS
 * Loopback 4
+* React
+
 
 ### Frameworks and Libraries
 * Docker
 * NodeJS
 * JQuery
 * Loopback 4
+* Bootstrap
+* React
 
 ### Project presentation
 * 1: [Project presentation](https://github.com/movie-stack/report-main/blob/main/docs/c1.md)
