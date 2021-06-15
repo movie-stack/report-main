@@ -46,15 +46,48 @@ DataBase Relations |
 
 
 ## REACT
-| | | | |
-:---: | :---: | :---: | :---:
-![img01](/docs/img/actorslobby.PNG) | ![img02](/docs/img/Serieslobby.PNG) | ![img03](/docs/img/movieslobby.PNG) | ![img04](/docs/img/usersLobby.PNG)
-Actors List | Series List | Movies List | Users List | 
+| |
+:---:
+![Relations](/docs/img/dashboard.png) |
+DashBoard |
 
-| | | | |
-:---: | :---: | :---: | :---:
-![img01](/docs/img/listmovieslobby.PNG) | ![img02](/docs/img/movieacotrslobby.PNG) | ![img03](/docs/img/serieactorslobby.PNG) | ![img04](/docs/img/listserieslobby.PNG)
-ListMoviesLobby | MovieActorsLobby | SeriesActorsLobby | List Series List | 
+
+| | | | 
+:---: | :---: | :---: 
+![img01](/docs/img/userslobby.PNG) | ![img02](/docs/img/actorslobby.PNG) | ![img03](/docs/img/Serieslobby.PNG)
+Users List | Actors List | Series List
+
+| | | | 
+:---: | :---: | :---: 
+![img01](/docs/img/movieslobby.PNG) | ![img02](/docs/img/listslobby.PNG) | ![img03](/docs/img/listmovieslobby.PNG)
+Movies List | List List | ListMovies List
+
+| | | | 
+:---: | :---: | :---: 
+![img01](/docs/img/listserieslobby.PNG) | ![img02](/docs/img/movieacotrslobby.PNG) | ![img03](/docs/img/serieactorslobby.PNG)
+List Series List | MovieActors List | SeriesActors List
+
+
+
+| | | | | |
+:---: | :---: | :---: | :---: | :---:
+![img01](/docs/img/actorcreate.PNG) | ![img02](/docs/img/seriescreate.PNG) | ![img03](/docs/img/moviescreate.PNG) | ![img04](/docs/img/userscreate.PNG) | ![img05](/docs/img/listscreate.PNG)
+Actors Create | Series Create | Movies Create | Users Create | List Create
+
+
+| | | | | |
+:---: | :---: | :---: | :---: | :---:
+![img01](/docs/img/actorsedit.PNG) | ![img02](/docs/img/seriesedit.PNG) | ![img03](/docs/img/moviesedit.PNG) | ![img04](/docs/img/usersedit.PNG) | ![img05](/docs/img/listsedit.PNG)
+Actors Edit | Series Edit | Movies Edit | Users Edit | List Edit
+
+
+| | | | | |
+:---: | :---: | :---: | :---: | :---:
+![img10](/docs/img/actorsfiltro.PNG) | ![img02](/docs/img/SeriesFiltro.PNG) | ![img03](/docs/img/moviesfiltro.PNG) | ![img04](/docs/img/usersFiltrar.PNG) | ![img05](/docs/img/listsfiltro.PNG)
+Actors Filtre | Series Filtre | Movies Filtre | Users Filtre | List Filtre
+
+
+
 
 
 ## Technologies
