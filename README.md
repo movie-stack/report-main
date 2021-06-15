@@ -45,7 +45,7 @@ DataBase Relations |
 
 | | | | |
 :---: | :---: | :---: | :---:
-![img01](/docs/img/actorslobby.PNG) | ![img02](/docs/img/Series%lobby.PNG) | ![img03](/docs/img/movieslobby.PNG) | ![img04](/docs/img/listserieslobby.PNG)
+![img01](/docs/img/actorslobby.PNG) | ![img02](/docs/img/Serieslobby.PNG) | ![img03](/docs/img/movieslobby.PNG) | ![img04](/docs/img/listserieslobby.PNG)
 ActorsLobby | SeriesLobby | MovieLobby | ListSeriesLobby | 
 
 ListSeriesLobby
