@@ -85,7 +85,7 @@ Actors Edit | Series Edit | Movies Edit | Users Edit | List Edit
 | | | | | |
 :---: | :---: | :---: | :---: | :---:
 ![img10](/docs/img/actorsfiltro.PNG) | ![img02](/docs/img/SeriesFiltro.PNG) | ![img03](/docs/img/moviesfiltro.PNG) | ![img04](/docs/img/usersFiltrar.PNG) | ![img05](/docs/img/listsfiltro.PNG)
-Actors Filtre | Series Filtre | Movies Filtre | Users Filtre | List Filtre
+Actors Filter | Series Filter | Movies Filter | Users Filter | List Filter
 
 
 
