@@ -50,8 +50,8 @@ ActorsLobby | SeriesLobby | MovieLobby | ListSeriesLobby |
 
 | | | | |
 :---: | :---: | :---: | :---:
-![img01](/docs/img/listserieslobby.PNG) | ![img02](/docs/img/movieacotrslobby.PNG) | ![img03](/docs/img/serieactorslobby.PNG) | ![img04](/docs/img/usersLobby.PNG)
-ListSeriesLobby | MovieActorsLobby | SeriesActorsLobby | UsersLobby
+![img01](/docs/img/listmovieslobby.PNG) | ![img02](/docs/img/movieacotrslobby.PNG) | ![img03](/docs/img/serieactorslobby.PNG) | ![img04](/docs/img/usersLobby.PNG)
+ListMoviesLobby | MovieActorsLobby | SeriesActorsLobby | UsersLobby
 
 
 ## Technologies
