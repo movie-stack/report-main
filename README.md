@@ -43,10 +43,13 @@ UserController
 ![Relations](/docs/img/relacoes.png) |
 DataBase Relations |
 
-| |
-:---: |
-![img10](/docs/img/1.png)
-Lobbies
+| | | | |
+:---: | :---: | :---: | :---:
+![img01](/docs/img/actorslobby.PNG) | ![img02](/docs/img/listcontroller.png) | ![img03](/docs/img/listmoviecontroller.png) | ![img04](/docs/img/listmoviecontroller_listseriecontrololer.png)
+ActorLobby | SeriesLobby | MovieLobby | ListSeriesLobby | ListSeriesLobby
+
+
+| MovieActorsLobby | SeriesActorsLobby
 
 ## Technologies
 * HTML5 + CSS3
