@@ -43,6 +43,11 @@ UserController
 ![Relations](/docs/img/relacoes.png) |
 DataBase Relations |
 
+| |
+:---: |
+![img10](/docs/img/1.png)
+Lobbies
+
 ## Technologies
 * HTML5 + CSS3
 * Javascript
