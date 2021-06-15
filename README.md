@@ -48,10 +48,11 @@ DataBase Relations |
 ![img01](/docs/img/actorslobby.PNG) | ![img02](/docs/img/Serieslobby.PNG) | ![img03](/docs/img/movieslobby.PNG) | ![img04](/docs/img/listserieslobby.PNG)
 ActorsLobby | SeriesLobby | MovieLobby | ListSeriesLobby | 
 
-ListSeriesLobby
+| | | | |
+:---: | :---: | :---: | :---:
+![img01](/docs/img/listserieslobby.PNG) | ![img02](/docs/img/movieacotrslobby.PNG) | ![img03](/docs/img/serieactorslobby.PNG) | ![img04](/docs/img/usersLobby.PNG)
+ListSeriesLobby | MovieActorsLobby | SeriesActorsLobby | UsersLobby
 
-
-| MovieActorsLobby | SeriesActorsLobby
 
 ## Technologies
 * HTML5 + CSS3
