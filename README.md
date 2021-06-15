@@ -9,7 +9,7 @@ A aplicação Movie Stack consiste na criação de uma aplicação com o objetiv
 ## Repository organization
 * Pode encontrar o **codigo fonte** em [movie-stack](https://github.com/movie-stack/report-main/tree/main/movie-stack).
 * Pode encontrar a **base de dados** em [bd](https://github.com/movie-stack/report-main/tree/main/bd).
-* Pode encontrar outros documentos importantes em **docs** em [docs](https://github.com/movie-stack/report-main/tree/main/docs).
+* Pode encontrar outros documentos importantes em [docs](https://github.com/movie-stack/report-main/tree/main/docs).
 
 ## Gallery
 | |
@@ -58,9 +58,9 @@ DataBase Relations |
 * Loopback 4
 
 ### Project presentation
-* Chapter 1: [Project presentation](https://github.com/movie-stack/report-main/blob/main/docs/c1.md)
+* 1: [Project presentation](https://github.com/movie-stack/report-main/blob/main/docs/c1.md)
 ### User Interface 
-* Chapter 2: [User Interface Prototype and Sitemap](https://github.com/movie-stack/report-main/blob/main/docs/c2.md)
+* 2: [User Interface](https://github.com/movie-stack/report-main/blob/main/docs/c2.md)
 ### Product
 * Chapter 3: [Product](https://github.com/movie-stack/report-main/blob/main/docs/c3.md)
 ### Presentation
